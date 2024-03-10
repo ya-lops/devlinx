@@ -13,16 +13,12 @@ import { getCollection } from "astro:content";
 //   }));
 // }
 
-const categories = await getCollection("Categories");
+const { category } = Astro.params;
 
-
-const page = categories.find((category) => category.slug === slug);
-if (!page) return Astro.redirect("/404");
-
-const { category } = Astro.props;
+// console.log(category);
 
 const linksInCategory = await getCollection("Links", ({ data }) => {
-  return data.category === category.slug;
+  return data.category === category;
 });
 ---
 
