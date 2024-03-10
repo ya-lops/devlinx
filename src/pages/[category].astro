@@ -4,22 +4,20 @@ import LinkCard from "@/components/LinkCard.astro";
 import LinkList from "@/components/LinkList.astro";
 import { getCollection } from "astro:content";
 
-// export async function getStaticPaths() {
-//   const categories = await getCollection("Categories");
-
-//   return categories.map((category) => ({
-//     params: { category: category.slug },
-//     props: { category },
-//   }));
-// }
-
 const { category } = Astro.params;
 
-// console.log(category);
+const categories = await getCollection("Categories");
+const categoryExists = categories.some(({ data }) => data.slug === category);
 
-const linksInCategory = await getCollection("Links", ({ data }) => {
-  return data.category === category;
-});
+let linksInCategory = [];
+
+if (categoryExists) {
+  linksInCategory = await getCollection("Links", ({ data }) => {
+    return data.category === category;
+  });
+} else {
+  return Astro.redirect("/404");
+}
 ---
 
 <BaseLayout>
