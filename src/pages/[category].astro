@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import LinkCard from "@/components/LinkCard.astro";
+import LinkList from "@/components/LinkList.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const categories = await getCollection("Categories");
+
+  return categories.map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+
+const linksInCategory = await getCollection("Links", ({ data }) => {
+  return data.category === category.slug;
+});
+---
+
+<BaseLayout>
+  <LinkList>
+    {linksInCategory.map((link) => <LinkCard linkItem={link} />)}
+  </LinkList>
+</BaseLayout>

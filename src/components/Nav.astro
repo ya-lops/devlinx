@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+
+const categories = await getCollection("Categories");
+---
+
+<nav class="devlinxNav">
+  <ul class="devlinxNav__list">
+    <li class="devlinxNav__listItem">
+      <a class="_link" href="/">All</a>
+    </li>
+    {
+      categories.map((category) => (
+        <li class="devlinxNav__listItem">
+          <a
+            class:list={[
+              "_link",
+              category.data.slug === Astro.request.url.split("/").pop()
+                ? "is-current"
+                : "",
+            ]}
+            href={"/" + category.data.slug}
+          >
+            {category.data.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss" is:global>
+  .devlinxNav {
+    font-family: monospace;
+
+    &__list {
+      list-style: none;
+    }
+
+    &__listItem {
+      color: var(--app-color-text-primary);
+    }
+
+    ._link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 300;
+
+      &.is-current {
+        font-weight: bolder;
+
+        &::before {
+          content: "▋";
+          position: absolute;
+          right: 100%;
+          animation: blink 1.5s 1 both;
+        }
+      }
+
+      &:not(.is-current):hover {
+        background: var(--app-color-text-secondary);
+        color: var(--app-color-text-primary-inverse);
+      }
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+</style>

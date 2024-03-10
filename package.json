@@ -1,0 +1,23 @@
+{
+  "name": "devlinx",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.6",
+    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/partytown": "^2.0.4",
+    "@fontsource-variable/jetbrains-mono": "^5.0.20",
+    "astro": "^4.4.13",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "sass": "^1.71.1",
+    "typescript": "^5.3.3"
+  }
+}

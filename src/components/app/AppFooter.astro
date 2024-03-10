@@ -1,0 +1,49 @@
+---
+
+---
+
+<footer class="devlinxFooter">
+  <div class="_author">
+    <div>
+      by <a href="https://discordapp.com/users/monikossa">monikossa</a>
+    </div>
+    <div>
+      write reviews and suggestions on <a
+        href="https://discordapp.com/users/monikossa">discord</a
+      >
+    </div>
+  </div>
+  <div class="_powered">
+    <img class="_icon" src="https://docs.astro.build/favicon.svg" alt="" />
+  </div>
+</footer>
+
+<style lang="scss" is:global>
+  .devlinxFooter {
+    padding-block: 1rem;
+    ._author {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 1rem;
+      border-top: 1px solid currentColor;
+      color: var(--app-color-text-secondary);
+      font-family: monospace;
+
+      a {
+        color: var(--app-color-text-primary);
+      }
+    }
+
+    ._powered {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1ch;
+    }
+
+    ._icon {
+      width: 1rem;
+    }
+  }
+</style>
