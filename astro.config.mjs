@@ -3,18 +3,21 @@ import { defineConfig } from 'astro/config';
 
 import mdx from "@astrojs/mdx";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   build: {
-    inlineStylesheets: "never",
+    inlineStylesheets: "never"
   },
   integrations: [
-    // partytown(),
-    mdx()]
-  ,
+  // partytown(),
+  mdx()],
   vite: {
     css: {
-      devSourcemap: true,
-    },
+      devSourcemap: true
+    }
   },
+  output: "server",
+  adapter: netlify()
 });
