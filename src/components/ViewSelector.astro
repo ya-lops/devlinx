@@ -1,0 +1,27 @@
+---
+
+---
+
+<aside class="devlinxViewSelector">
+  <div>
+    <label for="long">List</label>
+    <input type="radio" name="view" id="long">
+  </div>
+
+  <div>
+    <label for="short">Icon</label>
+    <input type="radio" name="view" id="short" checked>
+  </div>
+</aside>
+
+<style lang="scss" is:global>
+  .devlinxViewSelector {
+    display: flex;
+    justify-content: flex-end;
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+  }
+</style>

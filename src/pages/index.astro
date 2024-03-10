@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ViewSelector from "@/components/ViewSelector.astro";
 import LinkCard from "@/components/LinkCard.astro";
 import LinkList from "@/components/LinkList.astro";
 import { getCollection } from "astro:content";
@@ -11,9 +12,7 @@ const links = await getCollection("Links");
   <LinkList>
     {
       links.map((link) => (
-        <div class="devlinxNav__listItem">
-          <LinkCard linkItem={link} category />
-        </div>
+        <LinkCard isShort linkItem={link} category />
       ))
     }
   </LinkList>
