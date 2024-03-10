@@ -3,11 +3,6 @@ import "@/styles/index.scss";
 
 import { ViewTransitions } from "astro:transitions";
 import FavIcon from "@/components/app/FavIcon.astro";
-import CriticalCss from "@/components/app/CriticalCSS.astro";
-import MetaOg from "@/components/app/MetaOg.astro";
-import MetaTwitter from "@/components/app/MetaTwitter.astro";
-import ExternalFonts from "@/components/app/ExternalFonts.astro";
-import HeaderScripts from "@/components/app/HeaderScripts.astro";
 import FooterScripts from "@/components/app/FooterScripts.astro";
 import AppHeader from "@/components/app/AppHeader.astro";
 import AppFooter from "@/components/app/AppFooter.astro";
@@ -31,28 +26,26 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <FavIcon />
+    <ViewTransitions />
   </head>
   <body>
     <div class="app">
       <div class="app__header">
         <AppHeader />
       </div>
-
       <div class="app__nav">
         <Nav />
       </div>
-
       <div class="app__content">
         <main>
           <slot />
         </main>
       </div>
-
       <div class="app__footer">
         <AppFooter />
       </div>
     </div>
-
     <FooterScripts />
   </body>
 </html>
