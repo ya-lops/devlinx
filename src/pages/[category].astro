@@ -4,8 +4,6 @@ import LinkCard from "@/components/LinkCard.astro";
 import LinkList from "@/components/LinkList.astro";
 import { getCollection } from "astro:content";
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const categories = await getCollection("Categories");
 

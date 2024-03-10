@@ -1,9 +1,7 @@
 import { defineConfig } from 'astro/config';
-// import partytown from "@astrojs/partytown";
-
 import mdx from "@astrojs/mdx";
 
-import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,5 +17,5 @@ export default defineConfig({
     }
   },
   output: "server",
-  adapter: netlify()
+  adapter: vercel()
 });
