@@ -1,5 +1,5 @@
 ---
-import "@fontsource-variable/jetbrains-mono";
+import { Image } from 'astro:assets';
 
 interface Props {
   linkItem: any;
@@ -13,7 +13,7 @@ const { linkItem, category = false } = Astro.props;
   {
     linkItem.data.image && !linkItem.data.icon && (
       <div class="devlinxItem__icon as-image">
-        <img src={linkItem.data.image} alt="" />
+        <Image src={linkItem.data.image} inferSize alt="" />
       </div>
     )
   }
@@ -21,12 +21,6 @@ const { linkItem, category = false } = Astro.props;
   {
     linkItem.data.icon && !linkItem.data.image && (
       <div class="devlinxItem__icon as-icon" set:html={linkItem.data.icon} />
-    )
-  }
-
-  {
-    !linkItem.data.icon && !linkItem.data.image && (
-      <div class="devlinxItem__icon as-text">{linkItem.data.name.charAt(0)}</div>
     )
   }
 
