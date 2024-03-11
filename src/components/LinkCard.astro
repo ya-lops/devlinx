@@ -68,6 +68,12 @@ const { linkItem, category = false, isShort = false } = Astro.props;
         height: 100%;
       }
 
+      img {
+        width: fit-content;
+        height: fit-content;
+        max-width: 100%;
+      }
+
       &.as-text {
         font-family: var(--app-font-family-primary);
         font-weight: 800;
