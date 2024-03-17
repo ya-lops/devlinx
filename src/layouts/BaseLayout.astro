@@ -1,9 +1,9 @@
 ---
 import "@/styles/index.scss";
 import "@fontsource-variable/jetbrains-mono";
-import { ViewTransitions } from "astro:transitions";
+
 import FavIcon from "@/components/app/FavIcon.astro";
-import FooterScripts from "@/components/app/FooterScripts.astro";
+import HeaderScripts from "@/components/app/HeaderScripts.astro";
 import AppHeader from "@/components/app/AppHeader.astro";
 import AppFooter from "@/components/app/AppFooter.astro";
 import Nav from "@/components/Nav.astro";
@@ -27,7 +27,7 @@ const {
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <FavIcon />
-    <ViewTransitions />
+    <HeaderScripts/>
   </head>
   <body>
     <div class="app">
@@ -46,6 +46,5 @@ const {
         <AppFooter />
       </div>
     </div>
-    <FooterScripts />
   </body>
 </html>
