@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import mdx from "@astrojs/mdx";
-
 import vercel from "@astrojs/vercel/serverless";
+
+import simpleStackStream from "simple-stack-stream";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +11,7 @@ export default defineConfig({
   },
   integrations: [
   // partytown(),
-  mdx()],
+  mdx(), simpleStackStream()],
   vite: {
     css: {
       devSourcemap: true
@@ -18,6 +19,8 @@ export default defineConfig({
   },
   output: "server",
   adapter: vercel({
-    webAnalytics: { enabled: true }
-  }),
+    webAnalytics: {
+      enabled: true
+    }
+  })
 });

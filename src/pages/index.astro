@@ -1,15 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LinkList from "@/components/LinkList.astro";
-
+import { Suspense } from "simple-stack-stream/components";
 import { getCollection } from "astro:content";
+import LinkCard from "@/components/LinkCard.astro";
 
 const links = await getCollection("Links");
 ---
 
 <BaseLayout>
-  <div hx-get="/allLinks" hx-trigger="load" hx-swap="innerHTML">
+  <Suspense>
     <LinkList>
+      {links.map((link) => <LinkCard isShort linkItem={link} category />)}
+    </LinkList>
+    <LinkList slot="fallback">
       {
         links.map(() => (
           <div class="skeleton-item is-short">
@@ -19,5 +23,5 @@ const links = await getCollection("Links");
         ))
       }
     </LinkList>
-  </div>
+  </Suspense>
 </BaseLayout>

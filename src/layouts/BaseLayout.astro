@@ -8,6 +8,7 @@ import AppHeader from "@/components/app/AppHeader.astro";
 import AppFooter from "@/components/app/AppFooter.astro";
 import Nav from "@/components/Nav.astro";
 import CriticalCSS from "@/components/app/CriticalCSS.astro";
+// import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -30,6 +31,7 @@ const {
     <CriticalCSS/>
     <FavIcon />
     <HeaderScripts/>
+    <!-- <ViewTransitions/> -->
   </head>
   <body>
     <div class="app">

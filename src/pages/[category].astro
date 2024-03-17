@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LinkCard from "@/components/LinkCard.astro";
 import LinkList from "@/components/LinkList.astro";
-
+import { Suspense } from "simple-stack-stream/components";
 import { getCollection } from "astro:content";
 
 const { category } = Astro.params;
@@ -22,7 +22,24 @@ if (categoryExists) {
 ---
 
 <BaseLayout>
-  <LinkList>
-    {linksInCategory.map((link) => <LinkCard linkItem={link} />)}
-  </LinkList>
+  <Suspense>
+    <LinkList>
+      {linksInCategory.map((link) => <LinkCard linkItem={link} />)}
+    </LinkList>
+    <LinkList slot="fallback">
+      {
+        linksInCategory.map(() => (
+          <div class="skeleton-item _list">
+            <div class="_icon" />
+            <div class="_name" />
+            <div class="_description">
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        ))
+      }
+    </LinkList>
+  </Suspense>
 </BaseLayout>
