@@ -22,24 +22,21 @@ if (categoryExists) {
 ---
 
 <BaseLayout>
-  <Suspense>
-    <LinkList>
-      {linksInCategory.map((link) => <LinkCard linkItem={link} />)}
-    </LinkList>
-    <LinkList slot="fallback">
-      {
-        linksInCategory.map(() => (
-          <div class="skeleton-item _list">
+  <LinkList>
+    {
+      linksInCategory.map((link) => (
+        <LinkCard linkItem={link} server:defer>
+          <div class="skeleton-item _list" slot="fallback">
             <div class="_icon" />
             <div class="_name" />
             <div class="_description">
-              <p></p>
-              <p></p>
-              <p></p>
+              <p />
+              <p />
+              <p />
             </div>
           </div>
-        ))
-      }
-    </LinkList>
-  </Suspense>
+        </LinkCard>
+      ))
+    }
+  </LinkList>
 </BaseLayout>
