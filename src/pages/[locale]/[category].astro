@@ -1,8 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LinkCard from "@/components/LinkCard.astro";
 import LinkList from "@/components/LinkList.astro";
-import { getCollection } from "astro:content";
 
 const { category } = Astro.params;
 
@@ -16,11 +16,12 @@ if (categoryExists) {
     return data.category === category;
   });
 } else {
-  return Astro.redirect("/ru/404");
+  return Astro.redirect("/"+Astro.currentLocale);
 }
 ---
 
 <BaseLayout>
+  
   <LinkList>
     {
       linksInCategory.map((link) => (
