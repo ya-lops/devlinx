@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <h1 class="_404">404</h1>
+  <p class="_message">что-то пошло не так</p>
+</BaseLayout>
+
+<style lang="scss" is:global>
+  ._404 {
+    font-family: var(--app-font-family-primary);
+    font-size: 4rem;
+  }
+
+  ._message {
+    font-family: monospace;
+
+    &::after {
+      content: " _";
+      animation: blink 1.5s infinite both;
+    }
+  }
+</style>

@@ -3,16 +3,35 @@
 ---
 
 <footer class="devlinxFooter">
-  <div class="_author">
-    <div>
-      by <a href="https://discordapp.com/users/monikossa">monikossa</a>
-    </div>
-    <div>
-      write reviews and suggestions on <a
-        href="https://discordapp.com/users/monikossa">discord</a
-      >
-    </div>
-  </div>
+  {
+    Astro.currentLocale == "en" && (
+      <div class="_author">
+        <div>
+          by <a href="https://discordapp.com/users/monikossa">monikossa</a>
+        </div>
+        <div>
+          write reviews and suggestions on{" "}
+          <a href="https://discordapp.com/users/monikossa">discord</a>
+        </div>
+      </div>
+    )
+  }
+
+  {
+    Astro.currentLocale == "ru" && (
+      <div class="_author">
+        <div>
+          разработка:{" "}
+          <a href="https://discordapp.com/users/monikossa">monikossa</a>
+        </div>
+        <div>
+          писать отзывы и предложения{" "}
+          <a href="https://discordapp.com/users/monikossa">discord</a>
+        </div>
+      </div>
+    )
+  }
+
   <div class="_powered">
     <img class="_icon" src="https://docs.astro.build/favicon.svg" alt="" />
   </div>

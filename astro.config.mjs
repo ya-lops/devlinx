@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import vercel from "@astrojs/vercel/serverless";
 
@@ -7,15 +7,21 @@ import simpleStackStream from "simple-stack-stream";
 // https://astro.build/config
 export default defineConfig({
   build: {
-    inlineStylesheets: "never"
+    inlineStylesheets: "never",
+  },
+  i18n: {
+    defaultLocale: "en",
+    locales: ["ru", "en"],
   },
   integrations: [
-  // partytown(),
-  mdx(), simpleStackStream()],
+    // partytown(),
+    mdx(),
+    simpleStackStream(),
+  ],
   vite: {
     css: {
-      devSourcemap: true
-    }
+      devSourcemap: true,
+    },
   },
   experimental: {
     serverIslands: true,
@@ -23,7 +29,7 @@ export default defineConfig({
   output: "server",
   adapter: vercel({
     webAnalytics: {
-      enabled: true
-    }
-  })
+      enabled: true,
+    },
+  }),
 });

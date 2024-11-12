@@ -2,7 +2,6 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LinkCard from "@/components/LinkCard.astro";
 import LinkList from "@/components/LinkList.astro";
-import { Suspense } from "simple-stack-stream/components";
 import { getCollection } from "astro:content";
 
 const { category } = Astro.params;
@@ -17,7 +16,7 @@ if (categoryExists) {
     return data.category === category;
   });
 } else {
-  return Astro.redirect("/404");
+  return Astro.redirect("/ru/404");
 }
 ---
 

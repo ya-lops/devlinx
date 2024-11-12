@@ -8,29 +8,41 @@ import AppHeader from "@/components/app/AppHeader.astro";
 import AppFooter from "@/components/app/AppFooter.astro";
 import Nav from "@/components/Nav.astro";
 import CriticalCSS from "@/components/app/CriticalCSS.astro";
-// import { ViewTransitions } from "astro:transitions";
+import LocaleSwitch from "@/components/LocaleSwitch.astro";
+import { computeCurrentLocale } from "node_modules/astro/dist/i18n/utils";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const {
-  title = "devlinx – links for every frontend development day",
-  description = "linx to various frontend web development resources",
-} = Astro.props;
+let localeTitle, localeDescription, localeLang;
+
+if (Astro.currentLocale == "ru") {
+  localeTitle = "devlinx – ссылки для разработчика на каждый день ";
+  localeDescription =
+    "ссылки для разработчика на различные тематические ресурсы, которые сделают работу комфортнее";
+  localeLang = "ru";
+} else {
+  localeTitle = "devlinx – linx for the developer for every day";
+  localeDescription =
+    "linx for the developer to various thematic resources that will make work more comfortable";
+  localeLang = "en";
+}
+
+const { title = localeTitle, description = localeDescription } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={localeLang}>
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <CriticalCSS/>
+    <CriticalCSS />
     <FavIcon />
-    <HeaderScripts/>
+    <HeaderScripts />
     <!-- <ViewTransitions/> -->
   </head>
   <body>
@@ -39,6 +51,7 @@ const {
         <AppHeader />
       </div>
       <div class="app__nav">
+        <LocaleSwitch />
         <Nav />
       </div>
       <div class="app__content">
