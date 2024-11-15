@@ -9,7 +9,7 @@ import AppFooter from "@/components/app/AppFooter.astro";
 import Nav from "@/components/Nav.astro";
 import CriticalCSS from "@/components/app/CriticalCSS.astro";
 import LocaleSwitch from "@/components/LocaleSwitch.astro";
-import { computeCurrentLocale } from "node_modules/astro/dist/i18n/utils";
+import IconHamburgerSVG from "@/components/IconHamburger.svg.astro";
 
 interface Props {
   title?: string;
@@ -43,17 +43,23 @@ const { title = localeTitle, description = localeDescription } = Astro.props;
     <CriticalCSS />
     <FavIcon />
     <HeaderScripts />
-    <!-- <ViewTransitions/> -->
   </head>
   <body>
     <div class="app">
       <div class="app__header">
+        <div class="_menu-mobile">
+          <label for="mobileNavTrigger">
+            <IconHamburgerSVG tabindex="-1"/>
+          </label>
+          <input type="checkbox" id="mobileNavTrigger">
+        </div>
         <AppHeader />
       </div>
       <div class="app__nav">
         <LocaleSwitch />
         <Nav />
       </div>
+
       <div class="app__content">
         <main>
           <slot />

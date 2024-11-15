@@ -7,10 +7,8 @@ export default defineConfig({
     inlineStylesheets: "never",
   },
   i18n: {
+    defaultLocale: "en",
     locales: ["ru", "en"],
-    routing: {
-        prefixDefaultLocale: true
-    }
   },
   integrations: [
     mdx(),
