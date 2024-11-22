@@ -7,7 +7,6 @@ export default defineConfig({
     inlineStylesheets: "never",
   },
   i18n: {
-    defaultLocale: "en",
     locales: ["ru", "en"],
   },
   integrations: [
