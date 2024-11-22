@@ -6,9 +6,6 @@ export default defineConfig({
   build: {
     inlineStylesheets: "never",
   },
-  i18n: {
-    locales: ["ru", "en"],
-  },
   integrations: [
     mdx(),
   ],

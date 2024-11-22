@@ -7,8 +7,7 @@ const categories = await getCollection("Categories");
 <nav class="devlinxNav">
   <ul class="devlinxNav__list">
     <li class="devlinxNav__listItem">
-      {Astro.currentLocale == 'en' && <a class="_link" href="/en">All</a>}
-      {Astro.currentLocale == 'ru' && <a class="_link" href="/ru">Все</a>}
+      <a class="_link" href="/en">All</a>
     </li>
     {
       categories.map((category) => (
@@ -20,10 +19,9 @@ const categories = await getCollection("Categories");
                 ? "is-current"
                 : "",
             ]}
-            href={"/"+ Astro.currentLocale + "/" + category.data.slug}
+            href={"/"+ category.data.slug}
           >
-            {Astro.currentLocale == 'en' && (category.data.name_en || category.data.name)}
-            {Astro.currentLocale == 'ru' && (category.data.name_ru || category.data.name)}
+            {category.data.name}
           </a>
         </li>
       ))
