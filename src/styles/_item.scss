@@ -4,6 +4,8 @@
   grid-template-areas: "icon name" "icon description";
   align-items: start;
   column-gap: 1rem;
+  text-decoration: none;
+  color: var(--app-color-text-primary);
 
   &.is-short {
     justify-self: center;
@@ -73,14 +75,15 @@
     cursor: pointer;
   }
 
+  &.is-short,
   &.is-short ._link {
     &:hover {
       text-decoration: underline;
     }
   }
 
-  &:not(.is-short) ._link {
-    &:hover {
+  &:not(.is-short) {
+    &:hover ._link {
       &::after {
         content: "_";
         animation: blink 1.5s infinite both;
