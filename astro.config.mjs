@@ -14,9 +14,6 @@ export default defineConfig({
       devSourcemap: true,
     },
   },
-  experimental: {
-    serverIslands: true,
-  },
   output: "server",
   adapter: vercel({
     webAnalytics: {
