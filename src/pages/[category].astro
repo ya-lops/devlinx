@@ -16,12 +16,11 @@ if (categoryExists) {
     return data.category === category;
   });
 } else {
-  return Astro.redirect("/"+Astro.currentLocale);
+  return Astro.redirect("/" + Astro.currentLocale);
 }
 ---
 
 <BaseLayout>
-  
   <LinkList>
     {
       linksInCategory.map((link) => (

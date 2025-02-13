@@ -10,7 +10,11 @@ interface Props {
 const { linkItem, category = false, isShort = false } = Astro.props;
 ---
 
-<a href={linkItem.data.href} title={isShort ? linkItem.data.description : ''} class:list={["devlinxItem", isShort ? "is-short" : ""]}>
+<a
+  href={linkItem.data.href}
+  title={isShort ? linkItem.data.description : ""}
+  class:list={["devlinxItem", isShort ? "is-short" : ""]}
+>
   {
     linkItem.data.image && !linkItem.data.icon && (
       <div class="devlinxItem__icon as-image">

@@ -10,9 +10,5 @@ const links = await getCollection("Links");
 ---
 
 <LinkList>
-  {
-    links.map((link) => (
-      <LinkCard isShort linkItem={link} category />
-    ))
-  }
+  {links.map((link) => <LinkCard isShort linkItem={link} category />)}
 </LinkList>

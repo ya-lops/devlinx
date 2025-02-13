@@ -42,16 +42,15 @@ const { title = localeTitle, description = localeDescription } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <CriticalCSS />
     <FavIcon />
-    <HeaderScripts />
   </head>
   <body>
     <div class="app">
       <div class="app__header">
         <div class="_menu-mobile">
           <label for="mobileNavTrigger">
-            <IconHamburgerSVG tabindex="-1"/>
+            <IconHamburgerSVG tabindex="-1" />
           </label>
-          <input type="checkbox" id="mobileNavTrigger">
+          <input type="checkbox" id="mobileNavTrigger" />
         </div>
         <AppHeader />
       </div>
