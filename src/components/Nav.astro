@@ -2,6 +2,9 @@
 import { getCollection } from "astro:content";
 
 const categories = await getCollection("Categories");
+const sortedCategories = categories.sort((a, b) => 
+  a.data.name.localeCompare(b.data.name)
+);
 ---
 
 <nav class="devlinxNav">
@@ -10,7 +13,7 @@ const categories = await getCollection("Categories");
       <a class="_link" href="/">All</a>
     </li>
     {
-      categories.map((category) => (
+      sortedCategories.map((category) => (
         <li class="devlinxNav__listItem">
           <a
             class:list={[
